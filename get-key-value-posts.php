@@ -19,7 +19,7 @@ function get_key_value_pairs(){
         foreach($vendor as $key => $value){
             echo $key . " => " . $value . " <br>";
         }
-        echo "<br>END VENDOR<br><br>";
+        echo "<br>END POST<br><br>";
     }
 }
 add_action('HOOK_HERE', 'get_key_value_pairs');  //Change HOOK_HERE to wherever you want to display the results
