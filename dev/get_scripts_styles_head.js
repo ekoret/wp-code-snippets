@@ -5,13 +5,27 @@
 
 (() => {
 	console.log('---------- Start JS output ----------');
-	document
-		.querySelectorAll('head > script')
-		.forEach((script) => console.log(script.src));
+	const scriptResult = [...document.querySelectorAll('head > script')].map(
+		(script) => ({
+			id: script.id,
+			src: script.src,
+			isAsync: script.async,
+			isDefer: script.defer,
+			type: script.type,
+		})
+	);
+	console.table(scriptResult);
 	console.log('---------- End JS output ----------');
 	console.log('---------- Start CSS output ----------');
-	document
-		.querySelectorAll('head > link')
-		.forEach((css) => console.log(css.href));
+	const cssResult = [...document.querySelectorAll('head > link')].map(
+		(css) => ({
+			id: css.id,
+			href: css.href,
+			as: css.as,
+			rel: css.rel,
+			type: css.type,
+		})
+	);
+	console.table(cssResult);
 	console.log('---------- End CSS output ----------');
 })();
